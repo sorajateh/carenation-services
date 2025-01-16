@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  body {
+    @apply bg-grayscale-100;
+  }
+  .suggestions-dropdown .group[data-popper-placement="bottom-end"]:before {
+    content: '';
+    @apply w-full h-[1px] block absolute -top-[11px] bg-white z-10;
+  }
+  .suggestions-dropdown .group[data-popper-placement="top-end"]:after {
+    content: '';
+    @apply w-full h-[1px] block absolute -bottom-[11px] bg-white z-10;
+  }
+  .suggestions-dropdown .group[data-popper-placement="top-end"] ul {
+    @apply pt-0 pb-[10px] -mb-[10px] rounded-b-none rounded-t-xl border-b-0
+  }
+  .suggestions-dropdown[data-headlessui-state="open"]:has(.group[data-popper-placement="bottom-end"]) button > span {
+    @apply rotate-180
+  }
+  .suggestions-dropdown[data-headlessui-state="open"]:has(.group[data-popper-placement="top-end"]) button > span {
+    @apply rotate-0
+  }
+}
